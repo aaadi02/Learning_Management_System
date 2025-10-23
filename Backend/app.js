@@ -4,6 +4,8 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 
 import userRoutes from "./routes/user.routes.js";
+import courseRoutes from "./routes/course.routes.js";
+
 import errorMiddleware from "./middlewares/error.middleware.js";
 
 const app = express();
@@ -24,6 +26,7 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 
 app.use("/api/v1/user", userRoutes);
+app.use("/api/v1/courses", courseRoutes);
 
 app.use("/ping", (req, res) => {
   res.send("pong");
